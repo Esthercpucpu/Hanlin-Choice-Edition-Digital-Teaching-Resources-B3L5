@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翰林 Choice 版影音互動網｜翰林技高Choice 版英文 B3U5 影音互動教學資源</title>
+    <meta name="description" content="翰林影音互動網。提供翰林 Choice 版技高英文完整的數位教學資源，包含課文動畫、單字遊戲、文法遊戲及補充互動教材，讓學生從高一開始喜歡英文">
+    <meta name="keywords" content="翰林影音互動網, 翰林技高英文, 翰林C版, 翰林技高英文互動, 翰林英文數位,翰林技高影音">
+    
+    <style>
+        :root {
+            --content-bg: #F4EFE6;       
+            --color-a: #1E2D3B;          
+            --color-b: #3D5A80;          
+            --section-bg: #EAE3D3;       
+            --section-border: #3D5A80;   
+            --btn-main: #D68C45;         
+            --btn-sub: #BE7634;          
+            --radius: 6px;               
+        }
+
+        body {
+            font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+            background-color: var(--content-bg);
+            margin: 0;
+            padding: 40px;
+            padding-bottom: 80px; 
+            color: #2c3e50;
+        }
+
+        .header-wrapper {
+            display: flex;
+            justify-content: space-between; 
+            align-items: flex-end; 
+            margin-bottom: 40px;
+            flex-wrap: wrap; 
+            gap: 20px;
+        }
+
+        .header {
+            border-left: 6px solid var(--color-b);
+            padding-left: 20px;
+        }
+        .header h2 { font-size: 1.3rem; color: var(--color-a); margin: 0; opacity: 0.85; letter-spacing: 1px; }
+        .header h1 { font-family: Georgia, "Times New Roman", "PingFang TC", serif; font-size: 2.8rem; color: var(--color-a); margin: 5px 0 0 0; font-weight: 800; letter-spacing: 0.5px; }
+
+        .unit-nav { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 5px; align-items: center; }
+        .unit-btn { padding: 4px 2px; color: var(--color-b); text-decoration: none; font-weight: bold; font-size: 1rem; transition: all 0.2s; letter-spacing: 0.5px; border-bottom: 2px solid transparent; }
+        @media (hover: hover) { .unit-btn:hover { color: var(--color-a); border-bottom: 2px solid var(--color-a); } }
+        .unit-btn:active { color: var(--color-a); border-bottom: 2px solid var(--color-a); }
+        .unit-btn.current { color: var(--color-a); border-bottom: 2px solid var(--color-a); pointer-events: none; }
+
+        .tab-container { display: flex; background-color: var(--color-b); padding: 8px 10px 0 10px; gap: 5px; border-radius: var(--radius) var(--radius) 0 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .tab-container::-webkit-scrollbar { display: none; }
+        .tab { padding: 12px 25px; cursor: pointer; color: rgba(255, 255, 255, 0.75); font-weight: bold; transition: all 0.2s; border-radius: var(--radius) var(--radius) 0 0; font-size: 0.95rem; letter-spacing: 1px; white-space: nowrap; }
+        .tab:hover { color: #ffffff; background-color: rgba(255,255,255,0.15); }
+        .tab.active { background-color: var(--content-bg); color: var(--color-b); opacity: 1; }
+
+        .tab-content { display: none; padding: 30px 0; }
+        .tab-content.active { display: block; }
+
+        .section-bar { background-color: var(--section-bg); color: var(--color-a); padding: 12px 20px; margin: 30px 0 15px 0; font-size: 1.1rem; font-weight: bold; border-left: 5px solid var(--section-border); border-bottom: 1px solid rgba(0,0,0,0.05); border-radius: 0 var(--radius) var(--radius) 0; letter-spacing: 1px; }
+
+        .button-group { display: flex; flex-wrap: wrap; gap: 15px; padding: 5px; align-items: stretch; }
+
+        .btn-main { display: flex; align-items: center; justify-content: center; padding: 14px 28px; background-color: var(--btn-main); color: #F4EFE6 !important; text-decoration: none; font-weight: bold; border-radius: var(--radius); transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 3px 6px rgba(0,0,0,0.15); border: none; letter-spacing: 1px; text-align: center; line-height: 1.4;}
+        .btn-main:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(214, 140, 69, 0.4); filter: brightness(1.05); }
+
+        .combo-box { display: flex; background-color: var(--btn-main); border-radius: var(--radius); box-shadow: 0 3px 6px rgba(0,0,0,0.15); transition: transform 0.2s, box-shadow 0.2s; }
+        .combo-box:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(214, 140, 69, 0.4); }
+        .combo-label { color: #F4EFE6; padding: 12px 20px; font-weight: bold; display: flex; align-items: center; border-right: 1px solid rgba(244, 239, 230, 0.2); letter-spacing: 1px; }
+        .combo-note { font-size: 0.75rem; font-weight: normal; margin-left: 8px; opacity: 0.85; }
+
+        .sub-btn-group { padding: 8px 12px; display: flex; align-items: center; gap: 8px; }
+        .sub-btn { background-color: var(--btn-sub); color: #F4EFE6; padding: 8px 16px; text-decoration: none; border-radius: 4px; font-size: 0.9rem; font-weight: 500; border: 1px solid rgba(244, 239, 230, 0.15); transition: all 0.2s; }
+        .sub-btn:hover { background-color: #D68C45; }
+
+        .mt-0 { margin-top: 0; }
+
+        footer { position: fixed; bottom: 0; left: 0; width: 100%; text-align: center; padding: 10px 0; font-size: 0.7rem; color: var(--color-a); opacity: 0.6; font-family: Georgia, serif; background-color: rgba(244, 239, 230, 0.9); z-index: 9999; letter-spacing: 0.3px; border-top: 1px solid rgba(0,0,0,0.05); }
+
+        @media (max-width: 900px) { .header h1 { font-size: 2.3rem; } .header-wrapper { align-items: flex-start; flex-direction: column; gap: 15px; } }
+        @media (max-width: 600px) { body { padding: 20px 15px 80px 15px; } .header-wrapper { margin-bottom: 30px; } .header h1 { font-size: 1.8rem; } .tab { padding: 10px 16px; font-size: 0.85rem; } .button-group { flex-direction: column; gap: 12px; } .btn-main, .combo-box { width: 100%; box-sizing: border-box; min-height: 50px; } .combo-box { flex-direction: column; height: auto; } .combo-label { border-right: none; border-bottom: 1px solid rgba(244, 239, 230, 0.2); justify-content: center; padding: 10px; font-size: 0.9rem; } .sub-btn-group { padding: 12px; gap: 8px; display: grid; grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); } .sub-btn { padding: 8px 4px; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; } footer { font-size: 0.65rem; padding: 10px 5px; line-height: 1.4; } }
+    </style>
+</head>
+<body>
+
+    <div class="header-wrapper">
+        <div class="header">
+            <h2>翰林 Choice 版影音互動網</h2>
+            <h1>B3 U5 The Sugar Trap</h1>
+        </div>
+        
+        <div class="unit-nav">
+            <a href="https://esthercpucpu.github.io/Hanlin-Choice-Edition-Digital-Teaching-Resources-B3L1/b3l1" class="unit-btn">U1</a>
+            <a href="https://esthercpucpu.github.io/Hanlin-Choice-Edition-Digital-Teaching-Resources-B3L2/b3l2" class="unit-btn">U2</a>
+            <a href="https://esthercpucpu.github.io/Hanlin-Choice-Edition-Digital-Teaching-Resources-B3L3/b3l3" class="unit-btn">U3</a>
+            <a href="https://esthercpucpu.github.io/Hanlin-Choice-Edition-Digital-Teaching-Resources-B3L4/b3l4" class="unit-btn">U4</a>
+            <a href="#" class="unit-btn current">U5</a>
+            <a href="#" class="unit-btn">U6</a>
+            <a href="https://esthercpucpu.github.io/Hanlin-Choice-Edition-Digital-Teaching-Resources-volume/" class="unit-btn">其他冊次</a>
+        </div>
+    </div>
+
+    <div class="tab-container">
+        <div class="tab" onclick="openTab(event, 'reading')">READING</div>
+        <div class="tab" onclick="openTab(event, 'vocab')">VOCABULARY</div>
+        <div class="tab" onclick="openTab(event, 'grammar')">GRAMMAR FOCUS</div>
+        <div class="tab" onclick="openTab(event, 'listening')">LISTENING</div>
+        <div class="tab" onclick="openTab(event, 'conversation')">CONVERSATION</div>
+        <div class="tab" onclick="openTab(event, 'others')">其他常用資源</div>
+    </div>
+
+    <div id="reading" class="tab-content">
+        <div class="section-bar mt-0">影音資源</div>
+        <div class="button-group">
+            <div class="combo-box">
+                <div class="combo-label">課文動畫</div>
+                <div class="sub-btn-group">
+                    <a href="https://youtu.be/tWxOVHbA3RQ?si=OhSYeGEsJ9ghAnQx" target="_blank" class="sub-btn">無字幕</a>
+                    <a href="https://youtu.be/-Z_UcaYWiLE?si=tqwn64dmGKufA7oj" target="_blank" class="sub-btn">雙語字幕</a>
+                    <a href="https://youtu.be/30axIWyjSpc?si=45ocIyuoDpCDZUPL" target="_blank" class="sub-btn">英文字幕</a>
+                </div>
+            </div>
+            <a href="https://qa-player.hle.com.tw/vpc/playlist.html?volume=%E7%AC%AC%E4%B8%89%E5%86%8AC%E7%89%88&unit=L5" target="_blank" class="btn-main">課文聆聽</a>
+            <div class="combo-box">
+                <div class="combo-label">課文主題補充影片</div>
+                <div class="sub-btn-group">
+                    <a href="https://youtube.com/playlist?list=PL0ZsjItttKI53vBXuQoNywm8gt_8l8fHE&si=-7hxAeOPwai9kvAA" target="_blank" class="sub-btn">觀看影片</a>
+                    <a href="https://docs.google.com/document/d/1Jic_E7rA8nyvZnMhlnP7AkxTyRkR_ePz/edit" target="_blank" class="sub-btn">學習單</a>
+                </div>
+            </div>
+        </div> 
+        
+        <div class="section-bar">互動遊戲</div>
+        <div class="button-group">
+            <a href="https://qt.hle.com.tw/material.html?demo=true&entry=play-now&tt=Vivid&tid=115_1_VHE_TA_3_12&platform=Hanlin_Ebook" target="_blank" class="btn-main">影片停看聽</a>
+            <a href="https://website.hle.com.tw/ven/B3/%E6%99%BA%E6%85%A7%E5%85%8B%E6%BC%8F%E5%AD%97/unit5.html" target="_blank" class="btn-main">智慧克漏字</a>
+        </div>
+    </div>
+
+    <div id="vocab" class="tab-content">
+        <div class="section-bar mt-0">影音資源</div>
+        <div class="button-group">
+            <a href="https://qa-player.hle.com.tw/vpc/playlist.html?volume=%E7%AC%AC%E4%B8%89%E5%86%8AC%E7%89%88&unit=L5" target="_blank" class="btn-main">單字片語聆聽</a>
+        </div>
+        <div class="section-bar">單字片語互動遊戲</div>
+        <div class="button-group">
+            <div class="combo-box">
+                <div class="combo-label">口說派 </div>
+                <div class="sub-btn-group">
+                    <a href="https://qt.hle.com.tw/material.html?demo=true&entry=play-now&tt=Vivid&tid=SPEAK_V_034&platform=Hanlin_Ebook" target="_blank" class="sub-btn">單片</a>
+                    <a href="https://qt.hle.com.tw/material.html?demo=true&entry=play-now&tt=Vivid&tid=SPEAK_V_035&platform=Hanlin_Ebook" target="_blank" class="sub-btn">例句Ⅰ</a>
+                    <a href="https://qt.hle.com.tw/material.html?demo=true&entry=play-now&tt=Vivid&tid=SPEAK_V_036&platform=Hanlin_Ebook" target="_blank" class="sub-btn">例句Ⅱ</a>
+                </div>
+            </div>
+            <div class="combo-box">
+                <div class="combo-label">Blooket</div>
+                <div class="sub-btn-group">
+                    <a href="https://dashboard.blooket.com/set/6a8f9bdaacf8a7cb86fff694" target="_blank" class="sub-btn">看英選中</a>
+                    <a href="https://dashboard.blooket.com/set/6a8f9c410c51e182df4797cf" target="_blank" class="sub-btn">看中選英</a>
+                </div>
+            </div>
+            <div class="combo-box">
+                <div class="combo-label">Quizlet</div>
+                <div class="sub-btn-group">
+                    <a href="https://quizlet.com/tw/1185726482/%E7%BF%B0%E6%9E%97%E6%8A%80%E9%AB%98%E8%8B%B1%E6%96%87c%E7%AC%AC%E4%B8%89%E5%86%8A_l5_%E5%96%AE%E5%AD%97%E6%95%99%E5%AD%B8-%E5%AE%8C%E6%95%B4%E7%89%88-flash-cards/?i=2y3oj6&x=1jqt" target="_blank" class="sub-btn">單片</a>
+                    <a href="https://quizlet.com/tw/1186337883/%E7%BF%B0%E6%9E%97%E6%8A%80%E9%AB%98%E8%8B%B1%E6%96%87c%E7%AC%AC%E4%B8%89%E5%86%8A_l5_%E5%96%AE%E5%AD%97%E4%BE%8B%E5%8F%A5%E7%B7%B4%E7%BF%92-flash-cards/?i=2y3oj6&x=1jqt" target="_blank" class="sub-btn">例句</a>
+                </div>
+            </div>
+            <a href="https://website.hle.com.tw/ven/B3/Word%20Game/index.html" target="_blank" class="btn-main">Word Game</a>
+            <a href="https://website.hle.com.tw/ven/B3/Flash%20Card/L5/card.html" target="_blank" class="btn-main">Flash Card</a>
+        </div>
+        <div class="section-bar">Word Corner 互動遊戲</div>
+        <div class="button-group">
+            <a href="https://qt.hle.com.tw/material.html?demo=true&entry=play-now&tt=Vivid&tid=115_1_VHE_TA_3_5&platform=Hanlin_Ebook" target="_blank" class="btn-main">Let‘s play</a>
+        </div>
+    </div>
+
+    <div id="grammar" class="tab-content">
+        <div class="section-bar mt-0">影音資源 <span class="combo-note"></span></div>
+        <div class="button-group">
+            <a href="https://youtu.be/lyGQD1cH4xI?si=COvqEiFghIg5eK1c" target="_blank" class="btn-main">Focus1-補充歌曲</a>
+            <a href="https://youtu.be/RsEZmictANA?si=ybdB1gS9-7m0OdZG" target="_blank" class="btn-main">雙重比較級-補充歌曲</a>
+            <a href="https://youtu.be/FuXNumBwDOM?si=MEFAvmo0rb1jsEkB" target="_blank" class="btn-main">that子句當受詞-補充歌曲</a>
+            <a href="https://edisc3.hle.com.tw/edisc_v3/index.html?t=591680046" target="_blank" class="btn-main" style="background-color: var(--btn-sub);">補充歌曲學習單(行動大師)</a>
+        </div>
+        
+        <div class="section-bar">互動遊戲</div>
+        <div class="button-group">
+            <a href="https://wordwall.net/tc/resource/115106656/%E7%BF%B0%E6%9E%97/%E7%BF%B0%E6%9E%97b3-l5grammar-focus-1" target="_blank" class="btn-main">Focus1-Pop Quiz</a>
+            <a href="https://wordwall.net/tc/resource/115106672/%E8%8B%B1%E6%96%87/%E7%BF%B0%E6%9E%97b3-l5grammar-focus-2-%E9%9B%99%E9%87%8D%E6%AF%94%E8%BC%83%E7%B4%9A" target="_blank" class="btn-main">2.	雙重比較級-Pop Quiz</a>
+        </div>
+    </div>        
+
+    <div id="listening" class="tab-content">
+        <div class="section-bar mt-0">影音資源</div>
+        <div class="button-group">
+            <a href="https://qa-player.hle.com.tw/vpc/playlist.html?volume=%E7%AC%AC%E4%B8%89%E5%86%8AC%E7%89%88&unit=L4" target="_blank" class="btn-main">開始聆聽</a>
+        </div>
+    </div>
+
+    <div id="conversation" class="tab-content">
+        <div class="section-bar mt-0">影音資源</div>
+        <div class="button-group">
+            <div class="combo-box">
+                <div class="combo-label">對話動畫</div>
+                <div class="sub-btn-group">
+                    <a href="https://youtu.be/kD0ANjQplSw?si=xJ_4Ly5r72TV5u-u" target="_blank" class="sub-btn">無字幕</a>
+                    <a href="https://youtu.be/u0fqXjZZXDE?si=HZQgoeKEEPkbJoof" target="_blank" class="sub-btn">雙語字幕</a>
+                    <a href="https://youtu.be/mVwCPEBNB5g?si=ECI0smP3Nh58568b" target="_blank" class="sub-btn">英文字幕</a>
+                </div>
+            </div>
+            <a href="https://qa-player.hle.com.tw/vpc/playlist.html?volume=%E7%AC%AC%E4%B8%89%E5%86%8AC%E7%89%88&unit=L5" target="_blank" class="btn-main">對話聆聽</a>
+        </div>
+    </div>
+
+    <div id="others" class="tab-content">
+        <div class="section-bar mt-0">實用連結</div>
+        <div class="button-group">
+            <a href="https://edisc3.hle.com.tw/edisc_v3/index.html?t=591680046" target="_blank" class="btn-main">翰林行動大師</a>
+            <a href="https://testbank.hle.com.tw/" target="_blank" class="btn-main">翰林雲端命題大師</a>
+            <a href="https://qa-sh.hle.com.tw/vhc/" target="_blank" class="btn-main">翰林教材網</a>
+            <a href="https://vhc-selfstudy.hle.com.tw/unit-page.html?bookName=%E7%AC%AC%E4%B8%89%E5%86%8A&lessonId=L5" target="_blank" class="btn-main">自學Bar B3U5 </a>
+            <a href="https://qt.hle.com.tw/material.html?demo=true&entry=play-now&tt=Vivid&tid=113_1_JEN_TA_3_05&platform=Hanlin_Ebook" target="_blank" class="btn-main">獵寶征戰 B3U5</a>
+            <a href="https://www.coolenglish.edu.tw/" target="_blank" class="btn-main">Cool English 酷英網</a>
+        </div>
+    </div>
+
+    <footer>
+        Content Copyright © 2026 Han Lin Publishing Co., Ltd. & Licensors. All Rights Reserved.
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabContent, tabLinks;
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+                tabContent[i].classList.remove("active");
+            }
+            tabLinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            setTimeout(() => {
+                document.getElementById(tabName).classList.add("active");
+            }, 10);
+            evt.currentTarget.classList.add("active");
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector('.tab').click();
+        });
+    </script>
+</body>
+</html>
+
